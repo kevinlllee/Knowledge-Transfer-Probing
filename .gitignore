@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+ktp-data/train/images/
+/ktp-text-eval/
+/ktp-visual-eval/
