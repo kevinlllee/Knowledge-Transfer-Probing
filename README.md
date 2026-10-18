@@ -5,48 +5,27 @@ Project page for **Knowledge Transfer Probing (KTP)**.
 Wenkai Li\*, Wenyi Hong\*, Zhuoyi Yang\*, Jie Tang† — Tsinghua University · Z.AI
 (\* equal contribution, † corresponding author)
 
-Live page: https://kevinlunatic.github.io/Knowledge-Transfer-Probing/
+Live page: https://kevinlllee.github.io/Knowledge-Transfer-Probing/
+
+Paper: https://arxiv.org/pdf/2610.21459
 
 ## Structure
 
-- `index.html` — the single-page site (header and research overview, abstract, three-row training-data photo wall, How It Works, Key Findings, citation)
-- `HOMEPAGE_DRAFT.md` — the content draft for the condensed homepage
-- `static/images/` — figures rendered from the paper's PDF sources plus `social_preview.png` (1200×630) for link previews
-- `static/images/data/sampled/` — 21 unique, 560 px-tall JPEG training examples for the scrolling photo wall, sampled from `../visgen_code_pipe/data/`
-- `static/images/data/samples.json` — sampling seed, source paths and checksums, image dimensions, and matching entity/attribute metadata
-- `scripts/sample_data_wall.py` — reproducible sampling and photo-wall update script (requires Pillow)
-- `static/pdfs/paper.pdf` — compiled paper
-- `static/css/index.css` — template styles plus project-specific additions (figures, tables, contribution cards)
-- `static/js/index.js` — template scripts (BibTeX copy, scroll-to-top)
-
-## Updating
-
-- Links to arXiv and code are marked with `TODO` comments in `index.html`.
-- The photo wall follows the abstract and has three rows of seven unique images. Each row covers all seven categories; the animation clones these rows for seamless scrolling. Images, captions, and attribute values come from the same source records.
-- To resample the existing slots, run the following command (the recorded seed is `20261016`; change it for a new selection). It selects three distinct entities per category, then one random QC-passed, captioned training image per entity, preserving aspect ratios and leaving the source dataset untouched. Backup task directories are excluded.
-
-  ```bash
-  python3 scripts/sample_data_wall.py --seed 20261016
-  ```
-
-  Use `--data-root /path/to/visgen_code_pipe/data` if the dataset is elsewhere.
-- To regenerate a figure from the LaTeX sources:
-
-  ```bash
-  gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=png16m -r220 -dUseCropBox \
-     -dTextAlphaBits=4 -dGraphicsAlphaBits=4 \
-     -sOutputFile=static/images/<name>.png <path-to-figures>/<name>.pdf
-  ```
+- `index.html` — project page content and paper links
+- `static/images/` — research figures and social preview image
+- `static/images/data/sampled/` — 21 training examples for the scrolling photo wall
+- `static/css/index.css` — page styles
+- `static/js/index.js` — photo-wall animation, BibTeX copy, and scroll-to-top
 
 ## Local preview
 
 From the repository root:
 
 ```bash
-python3 -m http.server 8000 --bind 0.0.0.0
+python3 -m http.server 8000
 ```
 
-Open http://localhost:8000/#data to jump to the training-data section. For a remote development host, forward port 8000 or open `http://<host-ip>:8000/#data` if the host is reachable.
+Open http://localhost:8000/ in your browser.
 
 ## Acknowledgments
 
@@ -54,4 +33,4 @@ Built with the [Academic Project Page Template](https://github.com/eliahuhorwitz
 
 ## Website License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+Website content is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
