@@ -1,7 +1,7 @@
 # Can Visual Generation Expand What Unified Multimodal Models Know?
 
 <p align="center">
-  <a href="https://kevinlunatic.github.io/Knowledge-Transfer-Probing/">
+  <a href="https://kevinlllee.github.io/Knowledge-Transfer-Probing/">
     <img src="https://img.shields.io/badge/Project-Page-2166ac?style=flat-square" alt="Project Page">
   </a>
   <a href="https://arxiv.org/abs/2610.21459">
